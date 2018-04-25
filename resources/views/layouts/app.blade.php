@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ app('system')->name }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                {{ app('system')->name }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,12 +46,12 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
-                            <li class ="nav-link">
-                                <a href="/about">About</a>
-                            </li>
-                            <li class ="nav-link">
-                                <a href="/users">User</a>
-                            </li>
+                            <li class ="nav-link"><a href="/about">{{ __('About') }}</a></li>
+                            <li class ="nav-link"><a href="/systems/edit/{{ app('system')->id }}">{{ __('System') }}</a></li>
+                            <li class ="nav-link"><a href="/users">{{ __('Users') }}</a></li>
+                            <li class ="nav-link"><a href="/rooms">{{ __('Rooms') }}</a></li>
+                            <li class ="nav-link"><a href="/planttypes">{{ __('Plant Types') }}</a></li>
+                            <li class ="nav-link"><a href="/plants">{{ __('Plants') }}</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

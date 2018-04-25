@@ -15,6 +15,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        $this->app->singleton('system', function() {
+
+            $user = \Auth::user(); // get the current user
+            if(is_null($user)) {
+                $system = \DB::table('systems')->find(1); // find the master system                   
+            } else {
+                $system = \DB::table('systems')->find($user->systemID); // find the current system                  
+            }
+            return $system; // share the system
+        });
+
     }
 
     /**
