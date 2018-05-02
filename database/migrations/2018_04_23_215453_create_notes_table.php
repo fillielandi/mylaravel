@@ -19,6 +19,7 @@ class CreateNotesTable extends Migration
             $table->string('entity');
             $table->integer('entityID');
             $table->text('comments');
+            $table->string('share');
             $table->string('imageFileName')->nullable();
             $table->timestamps();    
         });

@@ -73,3 +73,11 @@ Route::post('/plants/{id}', 'PlantsController@update')->name('plants.update');
 Route::get('/plants/destroy/{id}', 'PlantsController@destroy')->name('plants.destroy');
 
 //Notes
+Route::get('/notes/{entity}/{entityID}', 'NotesController@index')->name('notes.index');
+Route::get('/notes/{entity}/{entityID}/create', 'NotesController@create')->name('notes.create');
+Route::get('/note/edit/{id}', 'NotesController@edit')->name('note.edit'); // needed to call this note not notes - notes causes an issue
+Route::post('/notes/store', 'NotesController@store')->name('notes.store');
+Route::post('/notes/{id}', 'NotesController@update')->name('notes.update');
+Route::get('/note/{entity}/{entityID}/destroy/{id}', 'NotesController@destroy')->name('note.destroy');
+
+Route::get('/community', 'CommunityController@index')->name('community.index');

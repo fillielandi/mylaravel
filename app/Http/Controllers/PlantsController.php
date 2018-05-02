@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Room;
-//use App\Note;
+use App\Note;
 use App\Plant;
 use App\PlantType;
 use Carbon\Carbon;
